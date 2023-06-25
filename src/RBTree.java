@@ -3,6 +3,59 @@ public class RBTree {
     private final boolean RED = false;
     private final boolean BLACK = true;
 
+    public void print(){
+        RBTreeNode tmp = root;
+        while (tmp != null) {
+                System.out.println(tmp);
+            if(tmp.getLeft() != null)
+                System.out.println(tmp.getLeft());
+            if(tmp.getRight() != null)
+                System.out.println(tmp.getRight());
+            if(tmp.getLeft()!= null)
+                tmp = tmp.getLeft();
+            else{
+                if(tmp.getRight()!=null)
+                    tmp = tmp.getRight();
+                else {
+                    tmp = null;
+                }
+            }
+        }
+        tmp = root.getRight();
+        while (tmp != null) {
+            System.out.println(tmp);
+            if(tmp.getLeft() != null)
+                System.out.println(tmp.getLeft());
+            if(tmp.getRight() != null)
+                System.out.println(tmp.getRight());
+            if(tmp.getLeft()!= null)
+                tmp = tmp.getLeft();
+            else{
+                if(tmp.getRight()!=null)
+                    tmp = tmp.getRight();
+                else {
+                    tmp = null;
+                }
+            }
+        }
+    }
+    public void print2(int key) {
+        RBTreeNode tmp = root;
+        while (tmp != null) {
+            if (tmp.getKey() == key) {
+                System.out.println(tmp);
+                tmp = null;
+            }
+            else if (tmp.getKey() > key) {
+                tmp = tmp.getLeft();
+                System.out.println(tmp);
+            }
+            else {
+                tmp = tmp.getRight();
+                System.out.println(tmp);
+            }
+        }
+    }
     public RBTreeNode query(int key) {
         RBTreeNode tmp = root;
         while (tmp != null) {
